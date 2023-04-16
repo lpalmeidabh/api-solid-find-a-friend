@@ -10,29 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Age {
-  BABY
-  ADULT
-  SENIOR
-}
-
-enum BodyBuild {
-  SMALL
-  MEDIUM
-  LARGE
-}
-
-enum Independence {
-  LOW
-  MEDIUM
-  HIGH
-}
-
-enum Environment {
-  SMALL
-  WIDE
-}
-
 model Organization {
   id            String   @id @default(uuid())
   name          String
@@ -42,19 +19,20 @@ model Organization {
   whatsapp      String
   password_hash String
   created_at    DateTime @default(now())
-  Pet           Pet[]
+  pets          Pet[]
 
   @@map("organizations")
 }
 
 model Pet {
-  id           String       @id @default(uuid())
+  id           String  @id @default(uuid())
   name         String
   description  String
-  age          Age          @default(ADULT)
-  build        BodyBuild    @default(MEDIUM)
-  independence Independence @default(MEDIUM)
-  environment  Environment  @default(SMALL)
+  city         String
+  age          String?
+  build        String?
+  independence String?
+  environment  String?
 
   created_at DateTime @default(now())
 

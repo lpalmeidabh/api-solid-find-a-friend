@@ -20,6 +20,8 @@ describe('Authenticate Use Case', () => {
       password_hash: await hash('123456', 6),
       zipcode: '12345678',
       address: 'Rua dos cachorros, 123',
+      city: 'Belo Horizonte',
+      state: 'MG',
       whatsapp: '11999999999',
     })
   })

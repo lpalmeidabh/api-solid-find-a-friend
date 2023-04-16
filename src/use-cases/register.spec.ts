@@ -26,6 +26,12 @@ describe('Register Use Case', () => {
       whatsapp: '11999999999',
     })
     expect(organization.id).toEqual(expect.any(String))
+    expect(organization).toEqual(
+      expect.objectContaining({
+        whatsapp: '11999999999',
+        address: 'Rua dos cachorros, 123',
+      }),
+    )
   })
 
   it('should hash user password upon registration', async () => {
@@ -35,6 +41,7 @@ describe('Register Use Case', () => {
       password: '123456',
       zipcode: '12345678',
       address: 'Rua dos cachorros, 123',
+
       whatsapp: '11999999999',
     })
 

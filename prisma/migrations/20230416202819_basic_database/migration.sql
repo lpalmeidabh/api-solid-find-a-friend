@@ -1,18 +1,3 @@
--- CreateEnum
-CREATE TYPE "Role" AS ENUM ('ADMIN', 'MEMBER');
-
--- CreateEnum
-CREATE TYPE "Age" AS ENUM ('BABY', 'ADULT', 'ELDERLY');
-
--- CreateEnum
-CREATE TYPE "BodyBuild" AS ENUM ('SMALL', 'MEDIUM', 'LARGE');
-
--- CreateEnum
-CREATE TYPE "Independence" AS ENUM ('LOW', 'MEDIUM', 'HIGH');
-
--- CreateEnum
-CREATE TYPE "Environment" AS ENUM ('SMALL', 'WIDE');
-
 -- CreateTable
 CREATE TABLE "organizations" (
     "id" TEXT NOT NULL,
@@ -22,7 +7,6 @@ CREATE TABLE "organizations" (
     "address" TEXT NOT NULL,
     "whatsapp" TEXT NOT NULL,
     "password_hash" TEXT NOT NULL,
-    "role" "Role" NOT NULL DEFAULT 'MEMBER',
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "organizations_pkey" PRIMARY KEY ("id")
@@ -33,10 +17,11 @@ CREATE TABLE "pets" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
-    "age" "Age" NOT NULL DEFAULT 'ADULT',
-    "build" "BodyBuild" NOT NULL DEFAULT 'MEDIUM',
-    "independence" "Independence" NOT NULL DEFAULT 'MEDIUM',
-    "environment" "Environment" NOT NULL DEFAULT 'SMALL',
+    "city" TEXT NOT NULL,
+    "age" TEXT,
+    "build" TEXT,
+    "independence" TEXT,
+    "environment" TEXT,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "organization_id" TEXT NOT NULL,
 
